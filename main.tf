@@ -47,7 +47,7 @@ resource "null_resource" "component" {
 
   provisioner "file" {
     source      = "bootstrap.sh"
-    destination = "/tmp/bootstrap.sh"
+    destination = "/tmp/bootstrap.sh ${var.tags.Component} ${var.environment} ${var.app_version}"
   }
 
   provisioner "remote-exec" {
